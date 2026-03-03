@@ -1,0 +1,33 @@
+<% layout("layouts/boilerplates") %>
+
+    <div class="container main-container">
+        <!-- <div class="container-fluid px-5 main-container"> -->
+        <h2 class="page-title">Explore Amazing Places</h2>
+
+        <div class="row g-4">
+
+            <% for (let listing of allListings) { %>
+                <div class="col-lg-3 col-md-4 col-sm-6" style="flex: 0 0 25%; max-width: 25%;"> <a class="listlink"
+                        href="/listings/<%=listing._id %>">
+                        <div class="listing-card">
+                            <div class="image-wrapper">
+                                <img src="<%=listing.image.url %>" alt="Listing Image">
+                                <div class="heart-icon">&#9825;</div>
+                            </div>
+                            <div class="listing-info">
+                                <h5>
+                                    <%= listing.title %>
+                                </h5>
+                                <p>
+                                    ₹ <%= listing.price ? listing.price.toLocaleString("en-IN") : "Price not available"
+                                        %> <span>/ night</span>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <% } %>
+
+        </div>
+    </div>

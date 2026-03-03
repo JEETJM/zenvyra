@@ -1,0 +1,54 @@
+<% layout("layouts/boilerplates") %>
+
+  <div class="show-wrapper">
+    <div class="show-container">
+
+      <div class="image-section">
+        <img src="<%= listing.image.url %>" alt="Listing Image">
+        <div class="heart">❤</div>
+      </div>
+
+      <div class="details-section">
+
+        <h1 class="listing-title">
+          <%= listing.title %>
+        </h1>
+
+        <div class="rating">
+          ⭐⭐⭐⭐⭐ <span>4.8 · 120 reviews</span>
+        </div>
+
+        <p class="price-tag">
+          ₹ <%= listing.price.toLocaleString("en-IN") %>
+            <span>/ night</span>
+        </p>
+
+        <p class="desc">
+          <%= listing.description %>
+        </p>
+
+        <div class="location">
+          📍 <%= listing.location %>, <%= listing.country %>
+        </div>
+
+        <div class="btn-area">
+          <a id="NBT" href="/listings/<%= listing._id %>/edit" class="btn edit">
+            ✏ Edit
+          </a>
+
+          <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE" onsubmit="return confirmDelete()">
+            <button id="NBT" class="btn delete">
+              🗑 Delete
+            </button>
+
+            <!-- <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST" onsubmit="return confirmDelete()">
+
+              <button class="btn-delete">Delete</button>
+            </form> -->
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
