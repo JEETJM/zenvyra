@@ -8,6 +8,21 @@ const WrapAsync = require("./utils/WrapAsync.js");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 
+// const mongoose = require("mongoose");
+
+// const dbUrl = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/airbnb";
+
+// async function main(){
+//   await mongoose.connect(dbUrl);
+// }
+
+// main()
+// .then(()=>{
+//   console.log("DB Connected");
+// })
+// .catch((err)=>{
+//   console.log("DB Error:",err);
+// });
 //ExpressError require *************
 // const ExpressError = require("../utils/ExpressError.js");
 /////////REQUIRE THE LISTINGS ROUTES WITH ROUTER ......................
@@ -140,15 +155,25 @@ app.listen(port, () => {
 });
 
 //connect dataabse .
-let mongo_url = "mongodb://127.0.0.1:27017/AIRBNB";
-async function main() {
-  await mongoose.connect(mongo_url);
-}
-// call the main function .
-main()
-  .then(() => {
-    console.log("Connected to DB");
-  })
-  .catch((err) => {
-    console.log("NOT to reach th DB Error is : ", err);
-  });
+// let mongo_url = "mongodb://127.0.0.1:27017/AIRBNB";
+// async function main() {
+//   await mongoose.connect(mongo_url);
+// }
+// // call the main function .
+// main()
+//   .then(() => {
+//     console.log("Connected to DB");
+//   })
+//   .catch((err) => {
+//     console.log("NOT to reach th DB Error is : ", err);
+//   });
+
+const dbUrl = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/airbnb";
+
+mongoose.connect(dbUrl)
+.then(()=>{
+  console.log("DB Connected");
+})
+.catch((err)=>{
+  console.log(err);
+});
