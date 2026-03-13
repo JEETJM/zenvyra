@@ -6,9 +6,11 @@
       <i class="fa-brands fa-airbnb"></i> Airbnb
     </a>
 
+
+
+
     <!-- Mobile Toggle -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-      data-bs-target="#navbarContent">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -28,11 +30,11 @@
       </ul>
 
       <!-- Center Search -->
-      <form class="search-bar d-none d-lg-flex">
-        <input type="text" placeholder="Search destinations">
+      <form class="search-bar d-none d-lg-flex" action="/listings/search" method="GET">
+        <input type="text" name="query" placeholder="Search destinations"
+          value="<%= typeof query !== 'undefined' ? query : '' %>">
         <button type="submit">Search</button>
       </form>
-
     </div>
   </div>
 </nav>
@@ -63,16 +65,16 @@
                  <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Add Listings</a>
         </li>  -->
-                <!-- <li class="nav-item ">
+<!-- <li class="nav-item ">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Link
           </a> -->
-                <!-- <ul class="dropdown-menu"> -->
-                <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
-                <!-- <li><a class="dropdown-item" href="/lilstings/new">Add Listings</a></li> -->
-                <!-- <li><hr class="dropdown-divider"></li> -->
-                <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
-            <!-- </ul>
+<!-- <ul class="dropdown-menu"> -->
+<!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
+<!-- <li><a class="dropdown-item" href="/lilstings/new">Add Listings</a></li> -->
+<!-- <li><hr class="dropdown-divider"></li> -->
+<!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+<!-- </ul>
             </li>
 
             </ul>
@@ -82,4 +84,4 @@
             </form>
         </div>
     </div>
-</nav> --> 
+</nav> -->

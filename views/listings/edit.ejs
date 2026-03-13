@@ -1,54 +1,90 @@
 <% layout("layouts/boilerplates") %>
 
-<div class="edit-wrapper">
-  <div class="edit-box">
+  <div class="edit-wrapper">
+    <div class="edit-box">
 
-    <div class="edit-header">
-  <h2>📝  Edit Listing</h2>
-      <p>Update your property details below</p>
+      <div class="edit-header">
+        <h2>📝 Edit Listing</h2>
+        <p>Update your property details below</p>
+      </div>
+
+      <form action="/listings/<%= listing._id %>?_method=PUT" method="POST" class="needs-validation" novalidate>
+
+        <div class="form-group">
+          <label>Title 🏠</label>
+          <input type="text" name="listing[title]" value="<%= listing.title %>" class="form-control" required>
+          <div class="valid-feedback">
+            Title looks perfect 👍
+          </div>
+          <div class="invalid-feedback">
+            Please enter a valid property title.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Description 📝</label>
+          <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
+          <div class="valid-feedback">
+            Description added successfully ✅
+          </div>
+          <div class="invalid-feedback">
+            Description must be at least 10 characters.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Image URL 🖼️</label>
+          <input type="text" name="listing[image][url]" required value="<%= listing.image.url %>" class="form-control">
+          <div class="valid-feedback">
+            Valid image URL detected 🖼️
+          </div>
+          <div class="invalid-feedback">
+            Please enter a valid image URL (https://...).
+          </div>
+        </div>
+
+        <div class="custom-row">
+          <div class="form-group">
+            <label>Price 💰</label>
+            <input type="number" name="listing[price]" value="<%= listing.price %>" min="0" class="form-control"
+              required>
+            <div class="valid-feedback">
+              Price looks good 💸
+            </div>
+            <div class="invalid-feedback">
+              Price must be greater than 0.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Country 🌍</label>
+            <input type="text" name="listing[country]" value="<%= listing.country %>" class="form-control" required>
+            <div class="valid-feedback">
+              Country selected ✔
+            </div>
+            <div class="invalid-feedback">
+              Please enter country name.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Location 📍</label>
+          <input type="text" name="listing[location]" value="<%= listing.location %>" class="form-control" required>
+          <div class="valid-feedback">
+            Location updated successfully 📍
+          </div>
+          <div class="invalid-feedback">
+            Please enter location.
+          </div>
+        </div>
+
+        <button class="btn-save" type="submit">
+          Update Listing
+        </button>
+
+      </form>
+
     </div>
-
-    <form action="/listings/<%= listing._id %>?_method=PUT" method="POST">
-
-      <div class="input-group">
-        <input type="text" name="listing[title]" 
-               value="<%= listing.title %>" required>
-        <label>Title</label>
-      </div>
-
-      <div class="input-group">
-        <textarea name="listing[description]" required><%= listing.description %></textarea>
-        <label>Description</label>
-      </div>
-
-      <div class="input-group">
-        <input type="text" name="listing[image][url]" 
-               value="<%= listing.image.url %>">
-        <label>Image URL</label>
-      </div>
-
-      <div class="row">
-        <div class="input-group">
-          <input type="number" name="listing[price]" 
-                 value="<%= listing.price %>" required>
-          <label>Price (₹)</label>
-        </div>
-
-        <div class="input-group">
-          <input type="text" name="listing[country]" 
-                 value="<%= listing.country %>" required>
-          <label>Country</label>
-        </div>
-      </div>
-
-      <div class="input-group">
-        <input type="text" name="listing[location]" 
-               value="<%= listing.location %>" required>
-        <label>Location</label>
-      </div>
-
-      <button class="btn-save">Update Listing</button>
-
-    </form>
   </div>
-</div>
+  <script src="/Js/script.js"></script>

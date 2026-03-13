@@ -1,6 +1,4 @@
-           <% layout("layouts/boilerplates") %> 
-
-  <div class="add-wrapper">
+<!-- <div class="add-wrapper">
     <div class="add-box">
 
       <div class="add-header">
@@ -11,7 +9,6 @@
       <form action="/listings" method="POST" class="needs-validation" novalidate >
         <div class="input-group " >
           <label>Title 🏠</label> 
-          <!-- <input required name="listing[title]" class="form-control" type="text" placeholder="Enter title"> -->
            <input required name="listing[title]" type="text"  placeholder="Enter title">
         </div>
 
@@ -47,10 +44,141 @@
       </form>
     </div>
   </div>  
+ -->
+<!-- -------------------------------------------------------------------------------------------------
+    -->
+<% layout("layouts/boilerplates") %>
+
+  <div class="add-wrapper">
+    <div class="add-box">
+
+      <div class="add-header">
+        <h2>➕ Add New Listing</h2>
+        <p>Enter your property details below</p>
+      </div>
+
+      <form action="/listings" method="POST" class="needs-validation" novalidate>
+
+        <div class="form-group">
+          <label>Title 🏠</label>
+          <input required name="listing[title]" type="text" class="form-control" placeholder="Enter title">
+          <div class="valid-feedback">
+            Title looks perfect 👍
+          </div>
+          <div class="invalid-feedback">
+            Please enter a valid property title.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Description 📝</label>
+          <textarea required name="listing[description]" class="form-control"
+            placeholder="Enter description"></textarea>
+          <div class="valid-feedback">
+            Description added successfully ✅
+          </div>
+          <div class="invalid-feedback">
+            Description must be at least 10 characters.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Image URL 🖼️</label>
+          <input required name="listing[image][url]" type="text" class="form-control" placeholder="Enter image URL">
+          <div class="valid-feedback">
+            Valid image URL detected 🖼️
+          </div>
+          <div class="invalid-feedback">
+            Please enter a valid image URL (https://...).
+          </div>
+        </div>
+<!-- type="number" min="0" -->
+        <div class="custom-row">
+          <div class="form-group">
+            <label>Price 💰</label>
+            <input required name="listing[price]" type="number" min="0"   class="form-control" placeholder="Enter price">
+            <div class="valid-feedback">
+              Price looks good 💸
+            </div>
+            <div class="invalid-feedback">
+              Price must be greater than 0.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Country 🌍</label>
+            <input required name="listing[country]" type="text" class="form-control" placeholder="Enter country">
+            <div class="valid-feedback">
+              Country selected ✔
+            </div>
+            <div class="invalid-feedback">
+              Please enter country name.
+            </div>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Location 📍</label>
+          <input required name="listing[location]" type="text" class="form-control" placeholder="Enter location">
+          <div class="valid-feedback">
+            Location updated successfully 📍
+          </div>
+          <div class="invalid-feedback">
+            Please enter location.
+          </div>
+        </div>
+
+        <button class="btn-add" type="submit">
+          ADD LISTING
+        </button>
+
+      </form>
+    </div>
+  </div>
+  <script src="/Js/script.js"></script>
 
 
 
-<!-- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- 
 
   <form action="/listings" method="POST"
       class="row g-3 needs-validation" novalidate>
@@ -132,7 +260,7 @@
 
 
 
-<!-- 
+  <!-- 
 
 
 <form action="/listings" method="POST" class="needs-validation" novalidate>
@@ -177,8 +305,8 @@
 
   <button class="btn-add" type="submit">ADD LISTING</button> -->
 
-<!-- </form> -->
-<!-- 
+  <!-- </form> -->
+  <!-- 
 
 <div class="add-wrapper">
   <div class="add-box">
@@ -233,7 +361,7 @@
 
 
 
-<!-- -----------------------------
+  <!-- -----------------------------
   -->
 
   <!-- <!DOCTYPE html>
@@ -311,7 +439,7 @@
 </head>
 <body> -->
 
-<!-- <div class="form-container">
+  <!-- <div class="form-container">
 
   <h2>➕ Add New Listing</h2>
 
@@ -394,8 +522,8 @@
 
 </div> -->
 
-<!-- Bootstrap Validation JS -->
-<!-- <script>
+  <!-- Bootstrap Validation JS -->
+  <!-- <script>
 (() => {
   'use strict'
   const forms = document.querySelectorAll('.needs-validation')
