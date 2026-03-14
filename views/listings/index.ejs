@@ -1,29 +1,30 @@
 <% layout("layouts/boilerplates") %>
+    <div class="container-fluid px-4">
+      <h2 class="page-title">Explore New Amazing Places</h2>
 
-   <div class="container-fluid px-4">
-  <h2 class="page-title">Explore New Amazing Places</h2>
+      <div class="row g-4">
+        <% for (let listing of allListings) { %>
 
-<div class="row g-4">
-    <% for (let listing of allListings) { %>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-        <a class="listlink" href="/listings/<%= listing._id %>">
-          <div class="listing-card">
-            <div class="image-wrapper">
-              <img src="<%= listing.image.url %>" alt="Listing Image">
-            </div>
-            <div class="listing-info">
-              <h5><%= listing.title %></h5>
-              <p>
-                ₹ <%= listing.price.toLocaleString("en-IN") %>
-                <span>/ night</span>
-              </p>
-            </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+            <a class="listlink" href="/listings/<%= listing._id %>">
+              <div class="listing-card">
+                <div class="image-wrapper">
+                  <img src="<%= listing.image.url %>" alt="Listing Image">
+                </div>
+                <div class="listing-info">
+                  <h5>
+                    <%= listing.title %>
+                  </h5>
+                  <p>
+                    ₹ <%= listing.price.toLocaleString("en-IN") %>
+                      <span>/ night</span>
+                  </p>
+                </div>
+              </div>
+            </a>
           </div>
-        </a>
+
+          <% } %>
+
       </div>
-
-    <% } %>
-
-  </div>
-</div>
+    </div>

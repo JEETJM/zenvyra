@@ -1,0 +1,11 @@
+<% if(success && success.length) {%>
+    <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
+
+        <!-- <i class="bi bi-check-circle-fill me-2"></i> -->
+        <!-- <strong>New Listings Created !!</strong> -->
+        <%= success %>
+
+            <button type="button" aria-label="Close" class="btn-close" data-bs-dismiss="alert"></button>
+
+    </div>
+    <% } %>

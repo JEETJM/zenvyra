@@ -227,19 +227,27 @@ const sessionOptions = {
   saveUninitialized: true,
   cookie: {
     expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
-    maxAge: 7 * 24 * 60 * 60 * 60 * 1000,
+    maxAge: 7 * 24 * 60 * 60 * 1000,
     httpOnly: true,
   },
 };
 
 //SEssion Middleware
 app.use(session(sessionOptions));
-app.get("/", (req, res) => {
-  res.redirect("/listings");
-});
 //FLASH MIDDLEWARE .
 app.use(flash());
 
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
+
+//Flash MIDDLEWARE ...........
+
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  next();
+});
+//routes REQUIRED
 app.use("/listings", listings);
 app.use("/listings/:id/reviews", reviews);
 

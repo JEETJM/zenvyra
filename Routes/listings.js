@@ -11,11 +11,6 @@ const { listingSchema, reviewSchema } = require("../Schema.js");
 // ExpressError require *************
 // const ExpressError = require("../utils/ExpressError.js");
 
-
-
-
-
-
 // function for  check validate listings-------------------------------------------++++++++++++++++++++++++++++++++++++++--------
 const validateListing = (req, res, next) => {
   let { error } = listingSchema.validate(req.body);
@@ -25,8 +20,6 @@ const validateListing = (req, res, next) => {
     throw new ExpressError(400, errMsg);
   } else next();
 };
-
-
 
 // SEARCH ROUTE
 router.get(
@@ -46,14 +39,8 @@ router.get(
       allListings: listings,
       query: query,
     });
-  })
+  }),
 );
-
-
-
-
-
-
 
 // //create a  basic home root .
 // router.get("/", async (req, res) => {
@@ -61,7 +48,6 @@ router.get(
 //   // res.send(allListings);
 //   res.render("./listings/index.ejs", { allListings });
 // });
-
 
 //INDEX ROUTE . ..
 router.get("/", async (req, res) => {
@@ -93,12 +79,13 @@ router.post(
   validateListing,
   WrapAsync(async (req, res, next) => {
     let resultt = listingSchema.validate(req.body);
-    console.log(resultt);
+    // console.log(resultt);
     if (resultt.err) {
       throw new ExpressError(400, resultt.err);
     }
     const newListing = new Listing(req.body.listing);
     await newListing.save();
+    req.flash("success", "New Listings Created !");
     res.redirect("/listings");
   }),
 );
@@ -120,6 +107,8 @@ router.put(
   WrapAsync(async (req, res) => {
     let { id } = req.params;
     await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+        req.flash("success", "Listing Updated Successfully !");
+
     res.redirect(`/listings/${id}`);
   }),
 );
@@ -130,6 +119,7 @@ router.delete(
     let { id } = req.params;
 
     await Listing.findByIdAndDelete(id);
+    req.flash("success", "Listing Deleted !");
 
     res.redirect("/listings");
   }),
