@@ -169,3 +169,40 @@ zenvyra/
 ├── README.md
 ├── .env
 ├── .gitignore
+
+---
+
+# 📬 Contact
+
+If you'd like to connect with me or discuss projects, feel free to reach out.
+
+<p align="center">
+
+<a href="https://github.com/JEETJM">
+<img src="https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github">
+</a>
+
+<a href="mailto:jm382118@gmail.com">
+<img src="https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white">
+</a>
+
+<a href="https://x.com/jm382118">
+<img src="https://img.shields.io/badge/Twitter-X-000000?style=for-the-badge&logo=twitter">
+</a>
+
+<a href="https://t.me/jeetu900">
+<img src="https://img.shields.io/badge/Telegram-Message-26A5E4?style=for-the-badge&logo=telegram&logoColor=white">
+</a>
+
+</p>
+
+---
+
+# 👨‍💻 Author
+
+**Jeet Mondal**
+
+- GitHub: https://github.com/JEETJM  
+- Email: jm382118@gmail.com  
+- Twitter/X: https://x.com/jm382118  
+- Telegram: https://t.me/jeetu900
