@@ -1,149 +1,219 @@
 # 🚀 Zenvyra – Full Stack Rental Listing Platform
 
+<p align="center">
+<img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" width="650"/>
+</p>
 
-
-
-
-
-
-
-
-\
+<p align="center">
+<img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=30&duration=4000&color=00F7FF&center=true&vCenter=true&width=900&lines=Full+Stack+Airbnb+Clone;Node.js+%7C+MongoDB+%7C+Express;Cloudinary+%2B+Mapbox+Integration;Advanced+Authentication+%2B+Security;Beautiful+UI+%2B+Animations" />
+</p>
 
 ---
 
-# 🌐 Live Website
+## 🌐 Live Demo
 
 🔗 https://zenvyra-app.onrender.com
 
----
-
-# 📦 GitHub Repository
+## 📦 GitHub Repository
 
 🔗 https://github.com/JEETJM/zenvyra
 
 ---
 
-# 🌟 Overview
+## 🌟 Project Overview
 
-**Zenvyra** is a modern full-stack Airbnb-style rental listing platform where users can explore, create, review, and manage property listings with a premium UI and smooth animations.
+**Zenvyra** is a **feature-rich full-stack rental listing platform** inspired by Airbnb.
 
-🔥 Designed with **performance, scalability, and clean architecture** in mind.
+It allows users to:
 
-⚠️ This project is created for **learning purposes only** and is not affiliated with Airbnb.
+* Discover rental properties 🌍
+* Create & manage listings 🏠
+* Upload images ☁️
+* Leave reviews ⭐
+* Explore locations via interactive maps 🗺️
 
----
-
-# ✨ Core Features
-
-## 🏠 Listing System
-
-* View all listings (Homepage auto-load)
-* View detailed listing page
-* Create new listing with image upload
-* Edit & update listing
-* Delete listing
+⚡ Built with a **scalable MVC architecture**, ensuring clean code and maintainability.
 
 ---
 
-## ⭐ Review System
+## 🎯 Advanced Features (Detailed)
+
+### 🏠 1. Listing Management System
+
+* Create new listings with full details
+* Update existing listings
+* Delete listings securely
+* Dynamic rendering of listings
+* Server-side validation (Joi)
+
+```js
+// Example: Create Listing
+router.post("/", isLoggedIn, validateListing, async (req, res) => {
+  const newListing = new Listing(req.body.listing);
+  newListing.author = req.user._id;
+  await newListing.save();
+  res.redirect("/listings");
+});
+```
+
+---
+
+### ⭐ 2. Review System
 
 * Add reviews to listings
-* Delete reviews
-* User-based review ownership
-* Dynamic rating UI
+* Delete reviews by owner
+* Rating-based feedback system
+* Relational linking (Listing ↔ Reviews)
+
+```js
+// Example: Add Review
+router.post("/", isLoggedIn, async (req, res) => {
+  const listing = await Listing.findById(req.params.id);
+  const review = new Review(req.body.review);
+  review.author = req.user._id;
+
+  listing.reviews.push(review);
+  await review.save();
+  await listing.save();
+});
+```
 
 ---
 
-## 👤 Authentication & Security
+### 👤 3. Authentication & Authorization
 
-* Login / Signup system
-* Passport.js authentication
-* Session-based login
-* Protected routes (authorization)
-* Password hashing (passport-local-mongoose)
+* Secure login/signup system
+* Passport.js Local Strategy
+* Session-based authentication
+* Protected routes (middleware)
+* Role-based access (optional extension)
 
----
-
-## 🖼️ Image Upload
-
-* Cloudinary integration
-* Multer middleware
-* Optimized image storage
+```js
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+```
 
 ---
 
-## 🗺️ Maps & Location
+### 🖼️ 4. Image Upload System (Cloudinary + Multer)
 
-* Mapbox integration
+* Upload images from frontend
+* Store in Cloudinary
+* Save image URL + filename in DB
+* Optimized image handling
+
+```js
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "Zenvyra/listings",
+  },
+});
+```
+
+---
+
+### 🗺️ 5. Map Integration (Mapbox)
+
+* Display location on map
 * Marker popup with listing details
-* Location-based visualization
+* Forward & reverse geocoding
+
+```js
+mapboxgl.accessToken = MAP_TOKEN;
+const map = new mapboxgl.Map({
+  container: "map",
+  style: "mapbox://styles/mapbox/streets-v11",
+});
+```
 
 ---
 
-## 🔍 Search & Filtering
+### 🔍 6. Search & Filtering System
 
-* Search by title, location, country
-* Category-based filtering (future-ready)
-* Dynamic UI filtering
+* Search by:
+
+  * Title
+  * Location
+  * Country
+* Dynamic filtering logic
+* Scalable for categories (future)
 
 ---
 
-## 🎨 UI / UX
+### 🎨 7. UI / UX (Premium Design)
 
 * Fully responsive design 📱
-* Dark / Light mode 🌙
-* Smooth animations & hover effects
-* Premium Airbnb-style cards
-* Clean navbar + footer
+* Dark / Light mode toggle 🌙
+* Animated buttons & cards
+* Smooth transitions
+* Clean modern layout
 
 ---
 
-## ⚡ Backend Features
+### ⚡ 8. Backend Architecture
 
-* RESTful routing
-* MVC architecture
-* Async error handling (WrapAsync)
-* Custom error middleware
-* Joi validation schemas
-* Modular controllers & routes
+* MVC pattern
+* Modular routing
+* Custom middleware
+* Centralized error handling
+* Async wrapper (WrapAsync)
+
+```js
+module.exports = (fn) => {
+  return function (req, res, next) {
+    fn(req, res, next).catch(next);
+  };
+};
+```
 
 ---
 
-# 🛠 Tech Stack
+### 🔐 9. Security Features
 
-## 💻 Frontend
+* Password hashing & salting
+* Session management
+* Secure cookies
+* Input validation (Joi)
+* Protection against invalid requests
+
+---
+
+## 🛠️ Tech Stack
+
+### 💻 Frontend
 
 * HTML5
-* CSS3 (Advanced Animations)
+* CSS3 (Animations)
 * JavaScript
 * Bootstrap
-* EJS Template Engine
+* EJS
 
-## ⚙️ Backend
+### ⚙️ Backend
 
 * Node.js
 * Express.js
 
-## 🗄️ Database
+### 🗄️ Database
 
 * MongoDB
 * Mongoose
 
-## 🔐 Authentication
+### 🔐 Authentication
 
 * Passport.js
 * express-session
 
-## ☁️ Cloud Services
+### ☁️ Services
 
-* Cloudinary (Images)
-* Mapbox (Maps)
-* Render (Deployment)
+* Cloudinary
+* Mapbox
+* Render
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure (Detailed)
 
 ```bash
 zenvyra/
@@ -165,9 +235,17 @@ zenvyra/
 │
 ├── views/
 │   ├── listings/
+│   │   ├── index.ejs
+│   │   ├── show.ejs
+│   │   ├── new.ejs
+│   │   └── edit.ejs
+│   │
 │   ├── reviews/
 │   ├── users/
 │   ├── includes/
+│   │   ├── navbar.ejs
+│   │   └── footer.ejs
+│   │
 │   └── layouts/
 │
 ├── public/
@@ -183,30 +261,22 @@ zenvyra/
 ├── cloudConfig.js
 ├── Schema.js
 ├── .env
-├── package.json
-└── README.md
+└── package.json
 ```
 
 ---
 
-# ⚙️ Installation Guide
-
-## 🔹 1. Clone Repository
+## ⚙️ Installation Guide
 
 ```bash
 git clone https://github.com/JEETJM/zenvyra.git
 cd zenvyra
-```
-
-## 🔹 2. Install Dependencies
-
-```bash
 npm install
 ```
 
-## 🔹 3. Setup Environment Variables
+---
 
-Create `.env` file:
+## 🔐 Environment Variables
 
 ```env
 MONGO_URL=your_mongodb_url
@@ -219,7 +289,7 @@ SESSION_SECRET=your_secret
 
 ---
 
-## 🔹 4. Run Project
+## ▶️ Run Project
 
 ```bash
 npm run dev
@@ -233,61 +303,36 @@ node app.js
 
 ---
 
-# 🔐 Security Features
-
-* Password hashing & salting
-* Session protection
-* Input validation (Joi)
-* Secure cookies
-* Protected routes
-
----
-
-# 🚀 Future Improvements
+## 🚀 Future Enhancements
 
 * ❤️ Wishlist system
 * 🏨 Booking system
-* 💳 Payment integration
+* 💳 Payment gateway
 * 🧑‍💻 Admin dashboard
 * 💬 Real-time chat
+* 📊 Analytics dashboard
 
 ---
 
-# 📸 Screenshots (Add Later)
+## 👨‍💻 Author
 
-* Homepage UI
-* Listing cards
-* Show page
-* Review system
-* Dark mode
+**Jeet Mondal**
 
----
-
-# 🤝 Contributing
-
-Contributions are welcome!
-
-```bash
-1. Fork the repo
-2. Create a new branch
-3. Commit changes
-4. Push & create PR
-```
+* GitHub: https://github.com/JEETJM
+* Email: [jm382118@gmail.com](mailto:jm382118@gmail.com)
+* Twitter: https://x.com/jm382118
+* Telegram: https://t.me/jeetu900
 
 ---
 
-# 👨‍💻 Author
+## 💙 Support
 
-**JEET MONDAL**
-
----
-
-# 💙 Support
-
-If you like this project:
-
-⭐ Star the repo
+⭐ Star this repo
 🍴 Fork it
 📢 Share it
 
 ---
+
+<p align="center">
+🔥 Built with Passion by JEET MONDAL 🔥
+</p>
