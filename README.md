@@ -1,8 +1,6 @@
 # 🚀 Zenvyra – Full Stack Rental Listing Platform
 
-<p align="center">
-<img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" width="650"/>
-</p>
+# 🚀 Zenvyra – Full Stack Rental Listing Platform <p align="center"> <img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" width="600"/> </p> <p align="center"> <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=28&duration=4000&color=00F7FF&center=true&vCenter=true&width=800&lines=Full+Stack+Airbnb+Clone;Node.js+%7C+MongoDB+%7C+Express;Cloudinary+%2B+Mapbox+Integration;Beautiful+UI+%2B+Animations" /> </p> <p align="center"> [![HTML](https://img.shields.io/badge/HTML5-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white)](#) [![CSS](https://img.shields.io/badge/CSS3-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white)](#) [![JavaScript](https://img.shields.io/badge/JavaScript-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](#) [![Bootstrap](https://img.shields.io/badge/Bootstrap-%23563D7C.svg?&style=for-the-badge&logo=bootstrap&logoColor=white)](#) [![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](#) [![ExpressJS](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)](#) [![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](#) [![EJS](https://img.shields.io/badge/EJS-Template-yellow?style=for-the-badge)](#) [![Render](https://img.shields.io/badge/Render-Deploy-black?style=for-the-badge&logo=render&logoColor=white)](#) </p>
 
 <p align="center">
 <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=30&duration=4000&color=00F7FF&center=true&vCenter=true&width=900&lines=Full+Stack+Airbnb+Clone;Node.js+%7C+MongoDB+%7C+Express;Cloudinary+%2B+Mapbox+Integration;Advanced+Authentication+%2B+Security;Beautiful+UI+%2B+Animations" />
