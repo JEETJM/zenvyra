@@ -26,7 +26,7 @@ router
     isLoggedIn,
     upload.single("listingImage"),
     validateListing,
-    WrapAsync(listingsController.createListings)
+    WrapAsync(listingsController.createListings),
   );
 
 // NEW
@@ -40,7 +40,7 @@ router.get(
   "/:id/edit",
   isLoggedIn,
   isListingOwner,
-  WrapAsync(listingsController.editListings)
+  WrapAsync(listingsController.editListings),
 );
 
 // SHOW + UPDATE + DELETE
@@ -52,12 +52,12 @@ router
     isListingOwner,
     upload.single("listingImage"),
     validateListing,
-    WrapAsync(listingsController.updateListings)
+    WrapAsync(listingsController.updateListings),
   )
   .delete(
     isLoggedIn,
     isListingOwner,
-    WrapAsync(listingsController.deleteListings)
+    WrapAsync(listingsController.deleteListings),
   );
 
 module.exports = router;

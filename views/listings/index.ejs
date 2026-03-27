@@ -1,30 +1,160 @@
 <% layout("layouts/boilerplates") %>
-    <div class="container-fluid px-4">
-      <h2 class="page-title">Explore New Amazing Places</h2>
 
-      <div class="row g-4">
-        <% for (let listing of allListings) { %>
 
-          <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-            <a class="listlink" href="/listings/<%= listing._id %>">
-              <div class="listing-card">
-                <div class="image-wrapper">
-                  <img src="<%= listing.image.url %>" alt="Listing Image">
-                </div>
-                <div class="listing-info">
-                  <h5>
-                    <%= listing.title %>
-                  </h5>
-                  <p>
-                    ₹ <%= listing.price.toLocaleString("en-IN") %>
-                      <span>/ night</span>
-                  </p>
-                </div>
-              </div>
-            </a>
-          </div>
+  <div class="container-fluid px-3">
+    <!-- <h2 class="page-title">Explore New Amazing Places</h2> -->
 
-          <% } %>
 
+
+
+
+    
+
+    <div class="filters-tax-row">
+      <div class="filters-wrapper">
+        <div class="filters-topbar">
+          <button id="filterToggleBtn" class="filter-toggle-btn" type="button">
+            <span class="filter-btn-left">
+              <i class="fa-solid fa-sliders"></i>
+              <span>Filters</span>
+            </span>
+            <i class="fa-solid fa-chevron-down toggle-arrow"></i>
+          </button>
+        </div>
+
+        <div id="filters" class="filters-container">
+          <a href="/listings" class="filter <%= !selectedCategory ? 'active' : '' %>">
+            <div><i class="fa-solid fa-border-all"></i></div>
+            <p><b>All</b></p>
+          </a>
+
+          <a href="/listings?category=Trending" class="filter <%= selectedCategory === 'Trending' ? 'active' : '' %>">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p><b>Trending</b></p>
+          </a>
+
+          <a href="/listings?category=Rooms" class="filter <%= selectedCategory === 'Rooms' ? 'active' : '' %>">
+            <div><i class="fa-solid fa-bed"></i></div>
+            <p><b>Rooms</b></p>
+          </a>
+
+          <a href="/listings?category=Iconic%20City"
+            class="filter <%= selectedCategory === 'Iconic City' ? 'active' : '' %>">
+            <div><i class="fa-solid fa-mountain-city"></i></div>
+            <p><b>Iconic City</b></p>
+          </a>
+
+          <a href="/listings?category=Mountains" class="filter <%= selectedCategory === 'Mountains' ? 'active' : '' %>">
+            <div><i class="fa-solid fa-mountain"></i></div>
+            <p><b>Mountains</b></p>
+          </a>
+
+          <a href="/listings?category=Castles" class="filter <%= selectedCategory === 'Castles' ? 'active' : '' %>">
+            <div><i class="fa-brands fa-fort-awesome"></i></div>
+            <p><b>Castles</b></p>
+          </a>
+
+          <a href="/listings?category=Amazing%20Pools"
+            class="filter <%= selectedCategory === 'Amazing Pools' ? 'active' : '' %>">
+            <div><i class="fa-solid fa-person-swimming"></i></div>
+            <p><b>Amazing Pools</b></p>
+          </a>
+
+          <a href="/listings?category=Arctic" class="filter <%= selectedCategory === 'Arctic' ? 'active' : '' %>">
+            <div><i class="fa-regular fa-snowflake"></i></div>
+            <p><b>Arctic</b></p>
+          </a>
+
+          <a href="/listings?category=Farms" class="filter <%= selectedCategory === 'Farms' ? 'active' : '' %>">
+            <div><i class="fa-solid fa-cow"></i></div>
+            <p><b>Farms</b></p>
+          </a>
+
+          <a href="/listings?category=Camping" class="filter <%= selectedCategory === 'Camping' ? 'active' : '' %>">
+            <div><i class="fa-solid fa-campground"></i></div>
+            <p><b>Camping</b></p>
+          </a>
+
+          <a href="/listings?category=Beach" class="filter <%= selectedCategory === 'Beach' ? 'active' : '' %>">
+            <div><i class="fa-solid fa-umbrella-beach"></i></div>
+            <p><b>Beach</b></p>
+          </a>
+
+          <a href="/listings?category=Treehouse" class="filter <%= selectedCategory === 'Treehouse' ? 'active' : '' %>">
+            <div><i class="fa-solid fa-tree"></i></div>
+            <p><b>Treehouse</b></p>
+          </a>
+
+          <a href="/listings?category=Camped" class="filter <%= selectedCategory === 'Camped' ? 'active' : '' %>">
+            <div><i class="fa-solid fa-ship"></i></div>
+            <p><b>Boats</b></p>
+          </a>
+
+          <a href="/listings?category=Hotel" class="filter <%= selectedCategory === 'Hotel' ? 'active' : '' %>">
+            <div><i class="fa-solid fa-hotel"></i></div>
+            <p><b>Hotel</b></p>
+          </a>
+
+          <a href="/listings?category=Apartment" class="filter <%= selectedCategory === 'Apartment' ? 'active' : '' %>">
+            <div><i class="fa-solid fa-building"></i></div>
+            <p><b>Apartment</b></p>
+          </a>
+
+          <a href="/listings?category=Sunset" class="filter <%= selectedCategory === 'Sunset' ? 'active' : '' %>">
+            <div><i class="fa-solid fa-sun"></i></div>
+            <p><b>Sunset</b></p>
+          </a>
+
+          <a href="/listings?category=Parking" class="filter <%= selectedCategory === 'Parking' ? 'active' : '' %>">
+            <div><i class="fa-solid fa-car"></i></div>
+            <p><b>Parking</b></p>
+          </a>
+
+          <a href="/listings?category=Wishlist" class="filter <%= selectedCategory === 'Wishlist' ? 'active' : '' %>">
+            <div><i class="fa-solid fa-igloo"></i></div>
+            <p><b>Domes</b></p>
+          </a>
+
+          
+        </div>
+      </div>
+
+      <div class="tax-toggle">
+        <label class="tax-switch-wrap" for="switchCheckDefault">
+          <span class="tax-switch-label">Display Total After Taxes</span>
+
+          <!-- CORRECT ID -->
+          <input class="tax-switch-input" type="checkbox" id="switchCheckDefault">
+
+          <span class="tax-slider"></span>
+        </label>
       </div>
     </div>
+
+    <div class="row g-4">
+      <% for (let listing of allListings) { %>
+
+        <div class="col-lg-3 col-md-3 col-sm-6 col-12 mt-4">
+          <a class="listlink" href="/listings/<%= listing._id %>">
+            <div class="listing-card">
+              <div class="image-wrapper">
+                <img src="<%= listing.image.url %>" alt="Listing Image">
+              </div>
+              <div class="listing-info">
+                <h5>
+                  <%= listing.title %>
+                </h5>
+                <p>
+                  ₹ <%= listing.price.toLocaleString("en-IN") %>
+                    <span>/ night</span>
+                    <i class="tax-info"><b style="color: rgb(250, 173, 173);">&nbsp;+18% GST</b></i>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <% } %>
+
+    </div>
+  </div>

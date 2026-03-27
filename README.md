@@ -1,4 +1,4 @@
-# 🚀 Zenvyra
+<!-- # 🚀 Zenvyra
 
 <p align="center">
 <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=28&duration=4000&color=00F7FF&center=true&vCenter=true&width=600&lines=Full+Stack+Rental+Listing+Platform;Built+with+Node.js+%7C+MongoDB+%7C+Express;Zenvyra+Web+Application" />
@@ -205,4 +205,4 @@ If you'd like to connect with me or discuss projects, feel free to reach out.
 - GitHub: https://github.com/JEETJM  
 - Email: jm382118@gmail.com  
 - Twitter/X: https://x.com/jm382118  
-- Telegram: https://t.me/jeetu900
+- Telegram: https://t.me/jeetu900 -->
