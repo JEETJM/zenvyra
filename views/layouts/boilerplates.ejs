@@ -15,6 +15,8 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.20.0/mapbox-gl.css" rel="stylesheet">
 
 
+
+
     <!-- Bootstrap (Single Version Only) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
@@ -37,6 +39,13 @@
 </head>
 
 <body>
+
+
+
+    <div class="snow-container" aria-hidden="true"></div>
+
+
+
 
     <%- include("../includes/navbar.ejs") %>
 
@@ -112,12 +121,52 @@
                     }
                 });
             </script>
+
+
+
+
+
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
             <!-- <script src="/Js/script.js"></script>/ -->
             <script src="/Js/script.js"></script>
             <script src="/Js/loverating.js"></script>
 
             <script src="https://api.mapbox.com/mapbox-gl-js/v3.20.0/mapbox-gl.js"></script>
+
+
+
+
+
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const snowContainer = document.querySelector(".snow-container");
+                    if (!snowContainer) return;
+
+                    const snowCount = 80;
+
+                    for (let i = 0; i < snowCount; i++) {
+                        const flake = document.createElement("span");
+                        flake.classList.add("snowflake");
+
+                        const size = Math.random() * 6 + 2; // 2px to 8px
+                        const left = Math.random() * 100;   // 0% to 100%
+                        const duration = Math.random() * 8 + 6; // 6s to 14s
+                        const delay = Math.random() * 10;
+                        const drift = (Math.random() * 120 - 60) + "px";
+
+                        flake.style.width = `${size}px`;
+                        flake.style.height = `${size}px`;
+                        flake.style.left = `${left}%`;
+                        flake.style.animationDuration = `${duration}s`;
+                        flake.style.animationDelay = `${delay}s`;
+                        flake.style.setProperty("--snow-x", drift);
+                        flake.style.opacity = (Math.random() * 0.5 + 0.4).toString();
+
+                        snowContainer.appendChild(flake);
+                    }
+                });
+            </script>
 
 
 </body>

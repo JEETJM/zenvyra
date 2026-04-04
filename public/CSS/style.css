@@ -2854,3 +2854,41 @@ body:not(.dark-mode) .tax-switch-input:checked + .tax-slider {
 .tax-info{
   display: none;
 }
+
+
+
+
+
+
+/* =========================
+   CUSTOM SNOW EFFECT
+========================= */
+
+.snow-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 99999;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.9;
+  animation-name: snowfall-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+@keyframes snowfall-fall {
+  0% {
+    transform: translate3d(0, -10px, 0);
+  }
+  100% {
+    transform: translate3d(var(--snow-x, 0px), 110vh, 0);
+  }
+}
